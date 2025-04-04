@@ -1,5 +1,6 @@
 {
   "name": "Message API Documentation",
+  "theme": "palm",
   "description": "Dokumentasi API untuk fitur pesan dan balasan dengan autentikasi, pembatasan tingkat, dan manajemen pengguna.",
   "favicon": "/favicon.svg",
   "openapi": "openapi.json",
