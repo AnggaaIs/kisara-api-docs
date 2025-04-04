@@ -29,15 +29,19 @@
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Message Endpoints",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "api-reference/message/post-message",
+        "api-reference/message/get-messages",
+        "api-reference/message/delete-message",
+        "api-reference/message/get-replies",
+        "api-reference/message/post-reply",
+        "api-reference/message/delete-reply",
+        "api-reference/message/like-message"
       ]
     }
   ],
   "footerSocials": {
-    "github": "https://github.com/AnggaaIs/kisara-api-v2"
+    "github": "https://github.com/AnggaaIs/kisara-api"
   }
 }
