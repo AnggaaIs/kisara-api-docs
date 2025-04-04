@@ -1,6 +1,6 @@
 {
   "$schema": "https://leaves.mintlify.com/schema/docs.json",
-  "theme": "mint",
+  "theme": "palm",
   "name": "KiSaRa API Documentation",
   "colors": {
     "primary": "#16A34A",
