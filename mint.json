@@ -31,13 +31,13 @@
     {
       "group": "Message Endpoints",
       "pages": [
-        "api-reference/message/post-message",
-        "api-reference/message/get-messages",
-        "api-reference/message/delete-message",
-        "api-reference/message/get-replies",
-        "api-reference/message/post-reply",
-        "api-reference/message/delete-reply",
-        "api-reference/message/like-message"
+        "message/post-message",
+        "message/get-messages",
+        "message/delete-message",
+        "message/get-replies",
+        "message/post-reply",
+        "message/delete-reply",
+        "message/like-message"
       ]
     }
   ],
