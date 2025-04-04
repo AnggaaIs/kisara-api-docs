@@ -1,6 +1,7 @@
 {
-  "name": "Message API Documentation",
+  "$schema": "https://leaves.mintlify.com/schema/docs.json",
   "theme": "mint",
+  "name": "KiSaRa API Documentation",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -8,24 +9,34 @@
   },
   "description": "Dokumentasi API untuk fitur pesan dan balasan dengan autentikasi, pembatasan tingkat, dan manajemen pengguna.",
   "favicon": "/favicon.svg",
-  "openapi": "openapi.json",
-  "navigation": [
-    {
-      "group": "Introduction",
-      "pages": ["introduction"]
-    },
-    {
-      "group": "API Reference",
-      "pages": [
-        "api-reference/message/index",
-        "api-reference/message/get",
-        "api-reference/message/post",
-        "api-reference/message/delete",
-        "api-reference/message/get-replies",
-        "api-reference/message/post-reply",
-        "api-reference/message/delete-reply",
-        "api-reference/message/like"
-      ]
-    }
-  ]
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "API Documentation",
+            "pages": [
+              "api-reference/introduction.mdx"
+            ]
+          },
+          {
+            "group": "Message Endpoints",
+            "openapi": {
+              "source": "api-reference/api/message/openapi.json"
+            },
+            "pages": [
+              "api-reference/message/get",
+              "api-reference/message/post",
+              "api-reference/message/delete",
+              "api-reference/message/post-reply",
+              "api-reference/message/get-replies",
+              "api-reference/message/delete-reply",
+              "api-reference/message/like"
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }
