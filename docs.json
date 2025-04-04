@@ -26,13 +26,13 @@
               "source": "api-reference/api/message/openapi.json"
             },
             "pages": [
-              "api-reference/message/get",
-              "api-reference/message/post",
-              "api-reference/message/delete",
-              "api-reference/message/post-reply",
-              "api-reference/message/get-replies",
-              "api-reference/message/delete-reply",
-              "api-reference/message/like"
+              "api-reference/api/message/get",
+              "api-reference/api/message/post",
+              "api-reference/api/message/delete",
+              "api-reference/api/message/post-reply",
+              "api-reference/api/message/get-replies",
+              "api-reference/api/message/delete-reply",
+              "api-reference/api/message/like"
             ]
           }
         ]
