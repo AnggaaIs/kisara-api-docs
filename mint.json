@@ -18,30 +18,30 @@
   "tabs": [
     {
       "name": "API Reference",
-      "url": "api-reference"
+      "url": "api"
     }
   ],
   "navigation": [
     {
       "group": "API Documentation",
       "pages": [
-        "api-reference/introduction"
+        "introduction"
       ]
     },
     {
       "group": "Message Endpoints",
       "pages": [
-        "message/post-message",
-        "message/get-messages",
-        "message/delete-message",
-        "message/get-replies",
-        "message/post-reply",
-        "message/delete-reply",
-        "message/like-message"
+        "api/message/get",
+        "api/message/post",
+        "api/message/delete",
+        "api/message/get-replies",
+        "api/message/post-reply",
+        "api/message/delete-reply",
+        "api/message/like"
       ]
     }
   ],
   "footerSocials": {
-    "github": "https://github.com/AnggaaIs/kisara-api"
+    "github": "https://github.com/AnggaaIs/kisara-api-v2"
   }
 }
