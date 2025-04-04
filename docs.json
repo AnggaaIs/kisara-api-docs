@@ -17,7 +17,7 @@
           {
             "group": "API Documentation",
             "pages": [
-              "api-reference/introduction.mdx"
+              "api-reference/introduction"
             ]
           },
           {
