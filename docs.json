@@ -1,0 +1,25 @@
+{
+  "name": "Message API Documentation",
+  "description": "Dokumentasi API untuk fitur pesan dan balasan dengan autentikasi, pembatasan tingkat, dan manajemen pengguna.",
+  "favicon": "/favicon.svg",
+  "openapi": "openapi.json",
+  "navigation": [
+    {
+      "group": "Introduction",
+      "pages": ["introduction"]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        "api-reference/message/index",
+        "api-reference/message/get",
+        "api-reference/message/post",
+        "api-reference/message/delete",
+        "api-reference/message/get-replies",
+        "api-reference/message/post-reply",
+        "api-reference/message/delete-reply",
+        "api-reference/message/like"
+      ]
+    }
+  ]
+}
