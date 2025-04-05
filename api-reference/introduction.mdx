@@ -5,7 +5,7 @@ description: "Welcome to KiSaRa API"
 
 Selamat datang di dokumentasi API **Kisara** 🎉
 
-API ini menyediakan endpoint untuk mengelola sistem komentar dan balasan berbasis link unik (`link_id`). Cocok digunakan untuk aplikasi atau sistem yang membutuhkan sistem pesan anonim, kolom komentar, atau feedback publik.
+API ini menyediakan endpoint untuk mengelola sistem komentar dan balasan berbasis link unik (\`link_id\`). Cocok digunakan untuk aplikasi atau sistem yang membutuhkan sistem pesan anonim, kolom komentar, atau feedback publik.
 
 ## Base URL
 
@@ -15,9 +15,9 @@ https://api.kisara.my.id
 
 ## Autentikasi
 
-Untuk beberapa endpoint (seperti menghapus komentar atau memberi like), autentikasi JWT diperlukan. Token dapat diperoleh melalui proses login di endpoint otentikasi (`/auth/login`).
+Untuk beberapa endpoint (seperti menghapus komentar atau memberi like), autentikasi JWT diperlukan. Token dapat diperoleh melalui proses login di endpoint otentikasi (\`/auth/login\`).
 
-Gunakan token JWT pada header:
+Gunakan token JWT dalam header:
 
 ```
 Authorization: Bearer <your_token>
@@ -33,11 +33,11 @@ Setiap response akan dikembalikan dalam format JSON berikut:
 
 ```json
 {
-  "statusCode": 200,
-  "message": "Success",
-  "data": {
-    ...
-  }
+"statusCode": 200,
+"message": "Success",
+"data": {
+...
+}
 }
 ```
 
