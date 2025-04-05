@@ -22,9 +22,6 @@
           },
           {
             "group": "Message Endpoints",
-            "openapi": {
-              "source": "api-reference/api/message/openapi.json"
-            },
             "pages": [
               "api-reference/api/message/get",
               "api-reference/api/message/post",

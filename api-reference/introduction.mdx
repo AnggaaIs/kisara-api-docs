@@ -1,71 +1,61 @@
 ---
-title: Introduction
-description: "Welcome to the home of your new documentation"
+title: "Introduction"
+description: "Welcome to KiSaRa API"
 ---
 
-<img
-  className="block dark:hidden"
-  src="/images/hero-light.png"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.png"
-  alt="Hero Dark"
-/>
+Selamat datang di dokumentasi API **Kisara** 🎉
 
-## Setting up
+API ini menyediakan endpoint untuk mengelola sistem komentar dan balasan berbasis link unik (\`link_id\`). Cocok digunakan untuk aplikasi atau sistem yang membutuhkan sistem pesan anonim, kolom komentar, atau feedback publik.
 
-The first step to world-class documentation is setting up your editing environments.
+## Base URL
 
-<CardGroup cols={2}>
-  <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
-  >
-    Get your docs set up locally for easy development
-  </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
-</CardGroup>
+```
+https://api.kisara.my.id
+```
 
-## Make it yours
+## Autentikasi
 
-Update your docs to your brand and add valuable content for the best user conversion.
+Untuk beberapa endpoint (seperti menghapus komentar atau memberi like), autentikasi JWT diperlukan. Token dapat diperoleh melalui proses login di endpoint otentikasi (\`/auth/login\`).
 
-<CardGroup cols={2}>
-  <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
-  </Card>
-  <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
-  >
-    Automatically generate endpoints from an OpenAPI spec
-  </Card>
-  <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/content/components/accordions"
-  >
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    Check out our showcase of our favorite documentation
-  </Card>
-</CardGroup>
+Gunakan token JWT dalam header:
+
+```
+Authorization: Bearer <your_token>
+```
+
+## Rate Limiting
+
+Semua endpoint memiliki batas maksimal **30 request per menit per IP** untuk mencegah spam.
+
+## Format Response
+
+Setiap response akan dikembalikan dalam format JSON berikut:
+
+```json
+{
+"statusCode": 200,
+"message": "Success",
+"data": {
+...
+}
+}
+```
+
+Jika terjadi error:
+
+```json
+{
+  "statusCode": 404,
+  "message": "User with link_id xyz not found",
+  "data": null
+}
+```
+
+## Endpoint Groups
+
+- **Auth**: login, register, get profile.
+- **Message**: kirim komentar, balas komentar, hapus, like.
+
+---
+
+Jika kamu siap, lanjutkan ke bagian [Endpoint](../endpoint/get) untuk eksplorasi lebih detail.
