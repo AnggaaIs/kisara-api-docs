@@ -1,39 +1,40 @@
 {
-  "$schema": "https://leaves.mintlify.com/schema/docs.json",
-  "theme": "palm",
-  "name": "KiSaRa API Documentation",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+  "$schema": "https://mintlify.com/docs.json",
+  "name": "Kisara API Docs",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
   },
-  "description": "Dokumentasi API untuk fitur pesan dan balasan dengan autentikasi, pembatasan tingkat, dan manajemen pengguna.",
-  "favicon": "/favicon.svg",
+  "theme": "mint",
+  "colors": {
+    "primary": "#0f766e",
+    "light": "#14b8a6",
+    "dark": "#0f766e"
+  },
   "navigation": {
-    "tabs": [
+    "groups": [
       {
-        "tab": "API Reference",
-        "groups": [
-          {
-            "group": "API Documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Message Endpoints",
-            "pages": [
-              "api-reference/api/message/get",
-              "api-reference/api/message/post",
-              "api-reference/api/message/delete",
-              "api-reference/api/message/post-reply",
-              "api-reference/api/message/get-replies",
-              "api-reference/api/message/delete-reply",
-              "api-reference/api/message/like"
-            ]
-          }
-        ]
+        "group": "Overview",
+        "pages": ["index", "api/overview"]
+      },
+      {
+        "group": "API Reference",
+        "openapi": "openapi/openapi.json"
       }
     ]
+  },
+  "api": {
+    "playground": {
+      "display": "interactive"
+    },
+    "examples": {
+      "languages": ["curl", "javascript", "python"],
+      "defaults": "required",
+      "prefill": true,
+      "autogenerate": true
+    },
+    "spec": {
+      "download": true
+    }
   }
 }

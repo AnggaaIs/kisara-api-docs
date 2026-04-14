@@ -1,0 +1,37 @@
+---
+title: "API Overview"
+description: "Cara menggunakan API Kisara dengan aman dan konsisten"
+---
+
+## Authentication
+
+Endpoint yang membutuhkan autentikasi menggunakan Bearer token JWT.
+
+Contoh header:
+
+```http
+Authorization: Bearer <access_token>
+```
+
+## Rate Limiting
+
+API menerapkan rate limit global dan per-route. Jika melebihi limit, request akan ditolak sementara.
+
+## Response Format
+
+Sebagian besar endpoint menggunakan struktur response:
+
+```json
+{
+  "status_code": 200,
+  "message": "OK",
+  "data": {},
+  "metadata": {
+    "method": "GET",
+    "url": "/endpoint",
+    "execution_time_ms": 12,
+    "ip": "127.0.0.1",
+    "timestamp": "2026-04-14T12:00:00.000Z"
+  }
+}
+```
