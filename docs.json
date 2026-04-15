@@ -5,19 +5,42 @@
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
+  "appearance": {
+    "default": "system"
+  },
+  "fonts": {
+    "family": "Manrope",
+    "heading": {
+      "family": "Manrope",
+      "weight": 700
+    },
+    "body": {
+      "family": "Manrope",
+      "weight": 500
+    }
+  },
   "icons": {
     "library": "lucide"
   },
   "theme": "mint",
+  "background": {
+    "decoration": "gradient"
+  },
   "colors": {
-    "primary": "#0f766e",
-    "light": "#14b8a6",
-    "dark": "#0f766e"
+    "primary": "#0b5fae",
+    "light": "#38bdf8",
+    "dark": "#0a3d78"
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs",
+    "codeblocks": "system"
   },
   "navigation": {
     "groups": [
       {
         "group": "Getting Started",
+        "icon": "rocket",
+        "root": "index",
         "pages": [
           "index",
           "api/overview"
@@ -25,6 +48,7 @@
       },
       {
         "group": "API Reference",
+        "icon": "square-terminal",
         "openapi": "openapi/openapi.json"
       }
     ]
