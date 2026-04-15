@@ -3,12 +3,41 @@ title: "Kisara API"
 description: "Dokumentasi resmi endpoint API Kisara"
 ---
 
-Selamat datang di dokumentasi API Kisara.
+Selamat datang di dokumentasi resmi API Kisara.
 
-Gunakan halaman API Reference untuk eksplor endpoint, schema request/response, dan mencoba request langsung lewat API playground.
+Dokumentasi ini dirancang untuk membantu Anda memahami alur integrasi dengan cepat: mulai dari autentikasi, pola respons, hingga eksplorasi endpoint secara interaktif di API Reference.
+
+## Mulai Cepat
+
+<CardGroup cols={2}>
+	<Card title="Pahami Dasar API" icon="book-open" href="/api/overview">
+		Pelajari autentikasi, format respons, dan praktik terbaik sebelum memanggil endpoint.
+	</Card>
+	<Card title="Coba Endpoint" icon="terminal" href="/api-reference">
+		Gunakan API playground untuk menguji request langsung dari dokumentasi.
+	</Card>
+</CardGroup>
 
 ## Environment
 
-- Production API: https://api.kisara.my.id
-- OpenAPI JSON: https://api.kisara.my.id/openapi.json
-- OpenAPI YAML: https://api.kisara.my.id/openapi.yaml
+- Base URL (Production): `https://api.kisara.my.id`
+- OpenAPI JSON: `https://api.kisara.my.id/openapi.json`
+- OpenAPI YAML: `https://api.kisara.my.id/openapi.yaml`
+
+## Alur Integrasi
+
+<Steps>
+	<Step title="Dapatkan Access Token">
+		Lakukan autentikasi sesuai endpoint yang tersedia, lalu simpan token JWT Anda.
+	</Step>
+	<Step title="Kirim Request ke Endpoint">
+		Sertakan header `Authorization: Bearer <access_token>` untuk endpoint yang memerlukan autentikasi.
+	</Step>
+	<Step title="Validasi Respons">
+		Cek `status_code`, `message`, dan isi `data`. Gunakan `metadata` untuk troubleshooting.
+	</Step>
+</Steps>
+
+<Tip>
+	Untuk pengalaman terbaik, buka halaman [API Overview](/api/overview) terlebih dahulu lalu lanjut ke API Reference.
+</Tip>

@@ -3,23 +3,33 @@ title: "API Overview"
 description: "Cara menggunakan API Kisara dengan aman dan konsisten"
 ---
 
+Halaman ini menjelaskan konvensi utama penggunaan API Kisara agar integrasi Anda stabil, aman, dan mudah di-debug.
+
 ## Authentication
 
 Endpoint yang membutuhkan autentikasi menggunakan Bearer token JWT.
 
-Contoh header:
+Header yang digunakan:
 
 ```http
 Authorization: Bearer <access_token>
 ```
 
+<Warning>
+  Pastikan token dikirim di setiap request ke endpoint privat. Request tanpa token atau token tidak valid akan ditolak.
+</Warning>
+
 ## Rate Limiting
 
-API menerapkan rate limit global dan per-route. Jika melebihi limit, request akan ditolak sementara.
+API menerapkan rate limit global dan per-route untuk menjaga stabilitas layanan.
+
+- Jika melebihi limit, request akan ditolak sementara.
+- Terapkan retry dengan jeda bertahap (exponential backoff) di sisi klien.
+- Hindari burst request berlebihan, terutama pada endpoint berat.
 
 ## Response Format
 
-Sebagian besar endpoint menggunakan struktur response:
+Sebagian besar endpoint mengembalikan struktur respons berikut:
 
 ```json
 {
@@ -35,3 +45,25 @@ Sebagian besar endpoint menggunakan struktur response:
   }
 }
 ```
+
+## Praktik Terbaik
+
+<CardGroup cols={2}>
+  <Card title="Selalu Cek status_code" icon="circle-check">
+    Jangan hanya mengandalkan HTTP status. Gunakan `status_code` dan `message` untuk validasi hasil.
+  </Card>
+  <Card title="Simpan metadata" icon="database">
+    Catat `metadata.timestamp` dan `metadata.execution_time_ms` untuk audit dan debugging.
+  </Card>
+  <Card title="Gunakan Timeout" icon="timer">
+    Set timeout request di client agar aplikasi tidak menunggu terlalu lama saat jaringan bermasalah.
+  </Card>
+  <Card title="Gunakan Idempotency" icon="repeat">
+    Untuk operasi tertentu, hindari duplikasi request agar tidak menimbulkan efek samping.
+  </Card>
+</CardGroup>
+
+## Langkah Selanjutnya
+
+- Eksplor endpoint di API Reference untuk melihat detail parameter dan schema.
+- Gunakan API playground untuk uji request langsung.
