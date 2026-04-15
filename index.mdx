@@ -1,43 +1,60 @@
 ---
 title: "Kisara API"
 description: "Dokumentasi resmi endpoint API Kisara"
+mode: "custom"
 ---
 
-Selamat datang di dokumentasi resmi API Kisara.
+<div className="px-5 pt-10 pb-6 lg:pt-16 lg:pb-10 max-w-4xl mx-auto text-center">
+	<p className="text-sm font-semibold tracking-wide uppercase text-teal-600 dark:text-teal-400">
+		Kisara Platform
+	</p>
+	<h1 className="mt-3 text-4xl lg:text-5xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+		Dokumentasi API Kisara
+	</h1>
+	<p className="mt-5 text-base lg:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+		Semua yang Anda butuhkan untuk integrasi cepat: autentikasi, pola respons, dan API playground yang siap diuji langsung.
+	</p>
+</div>
 
-Dokumentasi ini dirancang untuk membantu Anda memahami alur integrasi dengan cepat: mulai dari autentikasi, pola respons, hingga eksplorasi endpoint secara interaktif di API Reference.
+<div className="max-w-5xl mx-auto px-5 pb-8">
+	<Columns cols={2}>
+		<Card title="Mulai dari API Overview" icon="book-open" href="/api/overview" cta="Buka panduan" arrow>
+			Pelajari konvensi API, struktur respons, serta praktik integrasi yang disarankan.
+		</Card>
+		<Card title="Jelajahi API Reference" icon="terminal" href="/api-reference" cta="Coba endpoint" arrow>
+			Lihat detail endpoint, schema request-response, dan uji request via playground.
+		</Card>
+	</Columns>
+</div>
 
-## Mulai Cepat
+<div className="max-w-5xl mx-auto px-5 pb-2">
+	<Info>
+		Base URL produksi: https://api.kisara.my.id
+	</Info>
+</div>
 
-<CardGroup cols={2}>
-	<Card title="Pahami Dasar API" icon="book-open" href="/api/overview">
-		Pelajari autentikasi, format respons, dan praktik terbaik sebelum memanggil endpoint.
+<div className="max-w-5xl mx-auto px-5 pb-4">
+	<Card title="Environment Endpoint" icon="server" horizontal>
+		OpenAPI JSON: https://api.kisara.my.id/openapi.json<br />
+		OpenAPI YAML: https://api.kisara.my.id/openapi.yaml
 	</Card>
-	<Card title="Coba Endpoint" icon="terminal" href="/api-reference">
-		Gunakan API playground untuk menguji request langsung dari dokumentasi.
-	</Card>
-</CardGroup>
+</div>
 
-## Environment
+<div className="max-w-5xl mx-auto px-5 pb-12">
+	<h2>Alur Integrasi</h2>
+	<Steps>
+		<Step title="Siapkan Access Token">
+			Lakukan autentikasi sesuai endpoint terkait, lalu simpan JWT token dengan aman.
+		</Step>
+		<Step title="Kirim Request dengan Header Auth">
+			Untuk endpoint privat, sertakan Authorization: Bearer access_token.
+		</Step>
+		<Step title="Evaluasi Hasil Respons">
+			Gunakan status_code, message, data, dan metadata untuk validasi dan troubleshooting.
+		</Step>
+	</Steps>
 
-- Base URL (Production): `https://api.kisara.my.id`
-- OpenAPI JSON: `https://api.kisara.my.id/openapi.json`
-- OpenAPI YAML: `https://api.kisara.my.id/openapi.yaml`
-
-## Alur Integrasi
-
-<Steps>
-	<Step title="Dapatkan Access Token">
-		Lakukan autentikasi sesuai endpoint yang tersedia, lalu simpan token JWT Anda.
-	</Step>
-	<Step title="Kirim Request ke Endpoint">
-		Sertakan header `Authorization: Bearer <access_token>` untuk endpoint yang memerlukan autentikasi.
-	</Step>
-	<Step title="Validasi Respons">
-		Cek `status_code`, `message`, dan isi `data`. Gunakan `metadata` untuk troubleshooting.
-	</Step>
-</Steps>
-
-<Tip>
-	Untuk pengalaman terbaik, buka halaman [API Overview](/api/overview) terlebih dahulu lalu lanjut ke API Reference.
-</Tip>
+	<Tip>
+		Alur baca yang direkomendasikan: API Overview kemudian API Reference.
+	</Tip>
+</div>

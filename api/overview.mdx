@@ -3,29 +3,48 @@ title: "API Overview"
 description: "Cara menggunakan API Kisara dengan aman dan konsisten"
 ---
 
-Halaman ini menjelaskan konvensi utama penggunaan API Kisara agar integrasi Anda stabil, aman, dan mudah di-debug.
+Halaman ini merangkum standar utama penggunaan API Kisara agar integrasi tetap stabil, aman, dan mudah dipelihara.
+
+<Card title="Rekomendasi Implementasi" icon="sparkles" horizontal>
+  Ikuti urutan berikut: pahami autentikasi, atur retry untuk rate limit, lalu validasi response envelope pada setiap request.
+</Card>
 
 ## Authentication
 
-Endpoint yang membutuhkan autentikasi menggunakan Bearer token JWT.
+Endpoint privat menggunakan Bearer token JWT.
 
-Header yang digunakan:
+<CodeGroup>
 
-```http
+```http HTTP Header
 Authorization: Bearer <access_token>
 ```
 
+```bash cURL Example
+curl -X GET "https://api.kisara.my.id/endpoint" \
+  -H "Authorization: Bearer <access_token>"
+```
+
+</CodeGroup>
+
 <Warning>
-  Pastikan token dikirim di setiap request ke endpoint privat. Request tanpa token atau token tidak valid akan ditolak.
+  Request tanpa token valid akan ditolak. Simpan token di tempat aman dan hindari expose di sisi client publik.
 </Warning>
 
 ## Rate Limiting
 
 API menerapkan rate limit global dan per-route untuk menjaga stabilitas layanan.
 
-- Jika melebihi limit, request akan ditolak sementara.
-- Terapkan retry dengan jeda bertahap (exponential backoff) di sisi klien.
-- Hindari burst request berlebihan, terutama pada endpoint berat.
+<Steps>
+  <Step title="Deteksi Kegagalan Sementara">
+    Jika limit terlewati, request akan ditolak sementara oleh server.
+  </Step>
+  <Step title="Lakukan Retry Bertahap">
+    Terapkan exponential backoff untuk menurunkan risiko gagal berulang.
+  </Step>
+  <Step title="Kurangi Burst Request">
+    Gunakan batching atau queue untuk endpoint berat dan operasi paralel.
+  </Step>
+</Steps>
 
 ## Response Format
 
@@ -46,14 +65,18 @@ Sebagian besar endpoint mengembalikan struktur respons berikut:
 }
 ```
 
+<Info>
+  Perlakukan response di atas sebagai kontrak utama. Selalu validasi status_code dan struktur metadata di sisi client.
+</Info>
+
 ## Praktik Terbaik
 
 <CardGroup cols={2}>
   <Card title="Selalu Cek status_code" icon="circle-check">
-    Jangan hanya mengandalkan HTTP status. Gunakan `status_code` dan `message` untuk validasi hasil.
+    Jangan hanya mengandalkan HTTP status. Gunakan status_code dan message untuk validasi hasil.
   </Card>
   <Card title="Simpan metadata" icon="database">
-    Catat `metadata.timestamp` dan `metadata.execution_time_ms` untuk audit dan debugging.
+    Catat metadata.timestamp dan metadata.execution_time_ms untuk audit dan debugging.
   </Card>
   <Card title="Gunakan Timeout" icon="timer">
     Set timeout request di client agar aplikasi tidak menunggu terlalu lama saat jaringan bermasalah.
@@ -65,5 +88,5 @@ Sebagian besar endpoint mengembalikan struktur respons berikut:
 
 ## Langkah Selanjutnya
 
-- Eksplor endpoint di API Reference untuk melihat detail parameter dan schema.
-- Gunakan API playground untuk uji request langsung.
+- Lanjut ke API Reference untuk melihat detail parameter dan schema endpoint.
+- Uji request langsung lewat API playground agar behavior integrasi cepat tervalidasi.

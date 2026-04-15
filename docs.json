@@ -1,9 +1,12 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "name": "Kisara API Docs",
+  "name": "Kisara API Documentation",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
+  },
+  "icons": {
+    "library": "lucide"
   },
   "theme": "mint",
   "colors": {
@@ -14,8 +17,11 @@
   "navigation": {
     "groups": [
       {
-        "group": "Overview",
-        "pages": ["index", "api/overview"]
+        "group": "Getting Started",
+        "pages": [
+          "index",
+          "api/overview"
+        ]
       },
       {
         "group": "API Reference",
@@ -28,7 +34,11 @@
       "display": "interactive"
     },
     "examples": {
-      "languages": ["curl", "javascript", "python"],
+      "languages": [
+        "curl",
+        "javascript",
+        "python"
+      ],
       "defaults": "required",
       "prefill": true,
       "autogenerate": true
